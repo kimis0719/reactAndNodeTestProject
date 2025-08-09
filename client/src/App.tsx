@@ -7,7 +7,7 @@ import PostForm from './components/PostForm'; // 새로 만들 PostForm 컴포�
 function App() {
     return (
         <div>
-            <h1>게시판 프로젝트</h1>
+            <h1>게시판 프로젝트1123</h1>
             <Routes>
                 <Route path="/" element={<Board />} />
                 <Route path="/write" element={<PostForm />} /> {/* 글쓰기 페이지 */}
