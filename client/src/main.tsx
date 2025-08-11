@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 import './index.css'
+import { initTheme } from './theme' // ← 추가
+
+initTheme() // ← 앱 렌더링 전에 테마 적용
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
