@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom'; // Outlet을 import
+import BoardList from './BoardList'; // 게시판 목록 컴포넌트
 import axios from 'axios';
 
 const PostForm = () => {
@@ -64,33 +66,35 @@ const PostForm = () => {
                   작성일: {new Date(createdAt ?? '' ).toLocaleDateString()}
                 </small>
               </div>
+
               <div>
-                {/* whitespace-pre-wrap 클래스로 줄바꿈 유지 */}
                 <p className="mt-1 whitespace-pre-wrap text-gray-800 dark:text-gray-200">{content}</p>
               </div>
-              {/* 1. justify-between 클래스 추가  - 버튼정렬*/}
+
               <div className="flex items-center justify-between border-t border-gray-200 pt-4 dark:border-gray-700">
-                {/* 왼쪽에 위치할 '뒤로가기' 버튼 */}
+                {/* '뒤로가기' 버튼은 이미 다크 모드가 잘 적용되어 있음 */}
                 <button
                     type="button"
-                    onClick={() => navigate(-1)} // 이전 페이지로 이동
+                    onClick={() => navigate('/')}
                     className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 shadow-sm hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
                 >
                   뒤로가기
                 </button>
 
-                {/* 2. 오른쪽에 위치할 버튼들을 div로 그룹화 */}
                 <div className="flex items-center gap-2">
+                  {/* 1. '수정' 버튼에 다크 모드 배경색 추가 */}
                   <button
                       type="button"
-                      onClick={() => navigate(`/edit/${id}`)} // 수정 페이지로 이동
-                      className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700"
+                      onClick={() => navigate(`/edit/${id}`)}
+                      className="rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600"
                   >
                     수정
                   </button>
+
+                  {/* 2. '삭제' 버튼에 다크 모드 배경색 추가 */}
                   <button
                       onClick={() => handleDelete()}
-                      className="rounded-md bg-red-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-red-700 active:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-300 dark:focus:ring-red-900"
+                      className="rounded-md bg-red-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-red-700 active:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:active:bg-red-700 dark:focus:ring-red-800"
                       type="button"
                   >
                     삭제

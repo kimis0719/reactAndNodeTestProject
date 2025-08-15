@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import BoardList from './components/BoardList';
 import PostForm from './components/PostForm'; // 새로 만들 PostForm 컴포넌트 임포
 import ThemeToggle from './components/ThemeToggle';
+import BoardPage from "./components/BoardPage";
 
 
 function App() {
@@ -15,11 +16,11 @@ function App() {
                 </h1>
                 <ThemeToggle />
             </header>
-
             <Routes>
-                <Route path="/" element={<BoardList />} />
+                <Route path="/" element={<BoardPage />} >
+                    <Route path="/posts/:id" element={<PostForm />} />
+                </Route>
                 <Route path="/write" element={<PostForm />} />
-                <Route path="/posts/:id" element={<PostForm />} />
                 <Route path="/edit/:id" element={<PostForm />} />
             </Routes>
         </div>

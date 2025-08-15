@@ -76,9 +76,9 @@ const Board = () => {
             ) : (
                 <ul className="divide-y divide-gray-200 rounded-xl border border-gray-200 dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-800">
                     {posts.map((post) => (
-                        <li key={post._id} className="p-4 sm:p-5">
-                            <Link to={`/posts/${post._id}`}>
-                                <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+                        <li key={post._id} className="transition-colors hover:bg-gray-50 dark:hover:bg-black/10">
+                            <Link to={`/posts/${post._id}`} className="block p-4 sm:p-5">
+                                <div className="flex flex-wrap items-center justify-between gap-3">
                                     <h3 className="text-lg font-semibold dark:text-gray-100">{post.title}</h3>
                                     <small className="text-xs text-gray-500 dark:text-gray-400">
                                         작성일: {new Date(post.createdAt).toLocaleDateString()}
