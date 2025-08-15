@@ -1,8 +1,8 @@
 // client/src/App.tsx
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Board from './components/Board';
-import PostForm from './components/PostForm'; // 새로 만들 PostForm 컴포넌트 임포트
+import BoardList from './components/BoardList';
+import PostForm from './components/PostForm'; // 새로 만들 PostForm 컴포넌트 임포
 import ThemeToggle from './components/ThemeToggle';
 
 
@@ -17,8 +17,9 @@ function App() {
             </header>
 
             <Routes>
-                <Route path="/" element={<Board />} />
+                <Route path="/" element={<BoardList />} />
                 <Route path="/write" element={<PostForm />} />
+                <Route path="/posts/:id" element={<PostForm />} />
                 <Route path="/edit/:id" element={<PostForm />} />
             </Routes>
         </div>

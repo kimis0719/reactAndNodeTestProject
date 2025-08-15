@@ -5,6 +5,7 @@ import mongoose, { Document, Schema } from 'mongoose';
 export interface IPost extends Document {
     title: string;
     content: string;
+    like: Number;
 }
 
 // Mongoose 스키마 정의
@@ -12,6 +13,7 @@ const PostSchema: Schema = new Schema(
     {
         title: { type: String, required: true },
         content: { type: String, required: true },
+        like: { type: Number, required: false },
     },
     {
         timestamps: true, // createdAt, updatedAt 자동 기록

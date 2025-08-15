@@ -58,6 +58,24 @@ router.put('/:id', async (req: Request, res: Response) => {
     }
 });
 
+// [PUT] /api/posts/like/:id - 특정 게시글 좋아요
+router.put('/like/:id', async (req: Request, res: Response) => {
+    try {
+        const { like } = req.body;
+        const updatedPost = await Post.findByIdAndUpdate(
+            req.params.id,
+            {like},
+            { new: true } // 업데이트된 문서를 반환
+        );
+        if (!updatedPost) {
+            return res.status(404).json({ message: 'Post not found' });
+        }
+        res.status(200).json(updatedPost);
+    } catch (error) {
+        res.status(500).json({ message: 'Error updating post', error });
+    }
+});
+
 // [DELETE] /api/posts/:id - 특정 게시글 삭제
 router.delete('/:id', async (req: Request, res: Response) => {
     try {
