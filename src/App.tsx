@@ -10,7 +10,7 @@ function App() {
         <div className="mx-auto max-w-5xl px-4 py-6">
             <header className="mb-6 flex items-center justify-between">
                 <h1 className="text-2xl font-bold dark:text-gray-100">
-                    게시판 프로젝트ㅋㅋㄹㅃㅃ
+                    게시판 프로젝트
                 </h1>
                 <ThemeToggle />
             </header>
