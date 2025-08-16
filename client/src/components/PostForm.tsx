@@ -59,19 +59,19 @@ const PostForm = () => {
           {isViewMode ? '글 상세보기' : id ? '글 수정하기' : '새 글 작성하기'}
         </h2>
         {isViewMode ? (
-            <div className="space-y-5 rounded-xl border border-gray-200 p-5 dark:border-gray-700 dark:bg-gray-800">
+            <div className="space-y-5 rounded-xl border  p-5 dark:border-gray-700 dark:bg-gray-800">
               <div>
-                <p className="mt-1 text-lg text-gray-900 dark:text-gray-100">{title}</p>
-                <small className="text-xs text-gray-500 dark:text-gray-400">
+                <p className="mt-1 text-lg  dark:text-gray-100">{title}</p>
+                <small className="text-xs  dark:text-gray-400">
                   작성일: {new Date(createdAt ?? '' ).toLocaleDateString()}
                 </small>
               </div>
 
               <div>
-                <p className="mt-1 whitespace-pre-wrap text-gray-800 dark:text-gray-200">{content}</p>
+                <p className="mt-1 whitespace-pre-wrap  dark:text-gray-200">{content}</p>
               </div>
 
-              <div className="flex items-center justify-between border-t border-gray-200 pt-4 dark:border-gray-700">
+              <div className="flex items-center justify-between border-t  pt-4 dark:border-gray-700">
                 {/* '뒤로가기' 버튼은 이미 다크 모드가 잘 적용되어 있음 */}
                 <button
                     type="button"

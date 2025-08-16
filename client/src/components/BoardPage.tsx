@@ -14,7 +14,7 @@ const BoardPage = () => {
             {/* 자식 페이지 렌더링 영역 (상세 보기 등) */}
             <main>
                 {!isRootPath && (
-                    <div className="mb-8 rounded-xl border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                    <div className="mb-8 rounded-xl border border-gray-200  p-5 shadow-sm dark:border-gray-700 dark:bg-gray-800">
                         <Outlet key={location.pathname} />
                     </div>
                 )}

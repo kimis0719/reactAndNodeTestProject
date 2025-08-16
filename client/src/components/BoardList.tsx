@@ -77,7 +77,7 @@ const Board = () => {
             ) : (
                 <ul className="divide-y divide-gray-200 rounded-xl border border-gray-200 dark:divide-gray-700 dark:border-gray-700 dark:bg-gray-800">
                     {posts.map((post) => (
-                        <li key={post._id} className="transition-colors hover:bg-gray-50 dark:hover:bg-black/10">
+                        <li key={post._id} className="transition-colors hover:bg-gray-400 dark:hover:bg-gray-900">
                             {post._id === id ? (
                                 <div className="p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3">
                                     <h3 className="text-lg font-semibold dark:text-gray-100">{post.title}</h3>
