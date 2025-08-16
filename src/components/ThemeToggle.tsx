@@ -1,6 +1,6 @@
 // Language: TypeScript JSX
 // client/src/components/ThemeToggle.tsx
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { setTheme } from '../theme'
 
 export default function ThemeToggle() {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {Link, useParams} from 'react-router-dom';
 
@@ -19,6 +19,8 @@ const Board = () => {
         const fetchPosts = async () => {
             try {
                 const response = await axios.get<Post[]>('/api/posts');
+                // 이 로그를 추가해봐!
+                console.log('서버로부터 받은 데이터:', response.data);
                 setPosts(response.data);
             } catch (err) {
                 setError('게시글을 불러오는 데 실패했습니다.');

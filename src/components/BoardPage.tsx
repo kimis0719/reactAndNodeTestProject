@@ -1,4 +1,3 @@
-import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import BoardList from './BoardList'; // 게시판 목록 컴포넌트
 
