@@ -1,5 +1,5 @@
 import { Outlet, useLocation } from 'react-router-dom';
-import BoardList from './BoardList'; // 게시판 목록 컴포넌트
+import BoardList from './BoardList.js'; // 게시판 목록 컴포넌트
 
 const BoardPage = () => {
     // 현재 경로가 루트('/')인지 확인. 루트일 때는 상세보기를 렌더링하지 않음.

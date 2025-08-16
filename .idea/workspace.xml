@@ -4,50 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69a1dc48-d433-4df5-99cb-d7b157aa8ee7" name="변경" comment="css 수정">
-      <change afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/posts/[id].ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/posts/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/posts/like/[id].ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/dbConnect.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="69a1dc48-d433-4df5-99cb-d7b157aa8ee7" name="변경" comment="테스트">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/eslint.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/public/vite.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/vite.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/react.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/react.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Board.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/BoardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BoardList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/BoardPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BoardPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/PostForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ThemeToggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/vite-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/tsconfig.node.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.node.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/models/Post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/Post.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/routes/postRoutes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BoardPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BoardPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +113,7 @@
       <workItem from="1755250715737" duration="11908000" />
       <workItem from="1755309548085" duration="7181000" />
       <workItem from="1755316820033" duration="1031000" />
-      <workItem from="1755321118036" duration="4300000" />
+      <workItem from="1755321118036" duration="7784000" />
     </task>
     <task id="LOCAL-00001" summary="기본셋팅">
       <option name="closed" value="true" />
@@ -217,7 +179,23 @@
       <option name="project" value="LOCAL" />
       <updated>1755310473922</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="버셀씨바새끼">
+      <option name="closed" value="true" />
+      <created>1755325535589</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1755325535589</updated>
+    </task>
+    <task id="LOCAL-00010" summary="테스트">
+      <option name="closed" value="true" />
+      <created>1755326537429</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1755326537429</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -242,7 +220,9 @@
     <MESSAGE value="게시글 클릭시 하단에목록보이도록 수정" />
     <MESSAGE value="보고있는 게시글은 링크 비활성화" />
     <MESSAGE value="css 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="css 수정" />
+    <MESSAGE value="버셀씨바새끼" />
+    <MESSAGE value="테스트" />
+    <option name="LAST_COMMIT_MESSAGE" value="테스트" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

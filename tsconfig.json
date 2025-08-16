@@ -1,32 +1,31 @@
 {
   "compilerOptions": {
+    // --- Node.js & Vite 호환 설정 ---
     "target": "ESNext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "module": "ESNext",
-    "skipLibCheck": true,
 
-    /* Bundler mode: Vite와 Vercel API 모두를 위한 최적의 설정 */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-
+    // --- React/JSX ---
     "jsx": "react-jsx",
 
-    /* 엄격한 타입 체크 */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    // --- 모듈 및 임포트 ---
     "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
 
-    /* 경로 별칭 */
+    // --- 엄격한 타입 체크 및 코드 품질 ---
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // --- 경로 별칭 (프론트엔드용) ---
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
   "include": ["src", "api"],
+  "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
