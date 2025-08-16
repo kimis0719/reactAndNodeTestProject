@@ -11996,3 +11996,4 @@
 /server/node_modules/yn/package.json
 /server/node_modules/yn/readme.md
 /server/node_modules/.package-lock.json
+.vercel

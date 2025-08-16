@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Outlet } from 'react-router-dom'; // Outlet을 import
-import BoardList from './BoardList'; // 게시판 목록 컴포넌트
 import axios from 'axios';
 
 const PostForm = () => {

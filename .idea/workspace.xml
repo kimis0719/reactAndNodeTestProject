@@ -4,23 +4,50 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69a1dc48-d433-4df5-99cb-d7b157aa8ee7" name="변경" comment="커밋">
-      <change afterPath="$PROJECT_DIR$/client/src/components/Board.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/components/PostForm.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/models/Post.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/routes/postRoutes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/Form.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/MineSearch.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/Table.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/Td.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/Tr.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/client.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/webpack.config.js" beforeDir="false" />
+    <list default="true" id="69a1dc48-d433-4df5-99cb-d7b157aa8ee7" name="변경" comment="css 수정">
+      <change afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/posts/[id].ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/posts/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/posts/like/[id].ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/dbConnect.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/eslint.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/vite.svg" beforeDir="false" afterPath="$PROJECT_DIR$/public/vite.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/react.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/react.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Board.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/BoardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BoardList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/BoardPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BoardPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/PostForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PostForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ThemeToggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/theme.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/theme.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/vite-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/vite-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/tsconfig.node.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.node.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/models/Post.ts" beforeDir="false" afterPath="$PROJECT_DIR$/models/Post.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/routes/postRoutes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/tsconfig.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +62,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_AUTO_UPDATE" value="true" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -66,19 +99,19 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kimis__20250815&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;22.18.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;22.17.1&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/WebstormProjects/reactAndNodeTestProject/main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/admin/WebstormProjects/reactAndNodeTestProject/lib&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_interpreter_path&quot;: &quot;C:/Users/admin/AppData/Roaming/JetBrains/WebStorm2025.1/node/versions/22.18.0/node&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.nodejs&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\admin\\WebstormProjects\\reactAndNodeTestProject\\client\\node_modules\\typescript\\lib&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\admin\\WebstormProjects\\reactAndNodeTestProject\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -89,9 +122,14 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\WebstormProjects\reactAndNodeTestProject\lib" />
+      <recent name="C:\Users\admin\WebstormProjects\reactAndNodeTestProject" />
+      <recent name="C:\Users\admin\WebstormProjects\reactAndNodeTestProject\api" />
+      <recent name="C:\Users\admin\WebstormProjects\reactAndNodeTestProject\client\src\components" />
       <recent name="C:\Users\admin\WebstormProjects\reactAndNodeTestProject\main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\admin\WebstormProjects\reactAndNodeTestProject" />
       <recent name="C:\Users\admin\WebstormProjects\reactAndNodeTestProject\main\server" />
     </key>
   </component>
@@ -109,7 +147,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1754707002144</updated>
-      <workItem from="1754707003199" duration="10437000" />
+      <workItem from="1754707003199" duration="15919000" />
+      <workItem from="1755250715737" duration="11908000" />
+      <workItem from="1755309548085" duration="7181000" />
+      <workItem from="1755316820033" duration="1031000" />
+      <workItem from="1755321118036" duration="4300000" />
     </task>
     <task id="LOCAL-00001" summary="기본셋팅">
       <option name="closed" value="true" />
@@ -127,15 +169,90 @@
       <option name="project" value="LOCAL" />
       <updated>1754711856728</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="최초셋팅">
+      <option name="closed" value="true" />
+      <created>1754720927466</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1754720927466</updated>
+    </task>
+    <task id="LOCAL-00004" summary="최초셋팅">
+      <option name="closed" value="true" />
+      <created>1754721287542</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1754721287542</updated>
+    </task>
+    <task id="LOCAL-00005" summary="게시물 목록처리, 게시글 상세페이지 생성">
+      <option name="closed" value="true" />
+      <created>1755258912205</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1755258912205</updated>
+    </task>
+    <task id="LOCAL-00006" summary="게시글 클릭시 하단에목록보이도록 수정">
+      <option name="closed" value="true" />
+      <created>1755264246968</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1755264246968</updated>
+    </task>
+    <task id="LOCAL-00007" summary="보고있는 게시글은 링크 비활성화">
+      <option name="closed" value="true" />
+      <created>1755264581068</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1755264581068</updated>
+    </task>
+    <task id="LOCAL-00008" summary="css 수정">
+      <option name="closed" value="true" />
+      <created>1755310473922</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1755310473922</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="기본셋팅" />
     <MESSAGE value="커밋" />
-    <option name="LAST_COMMIT_MESSAGE" value="커밋" />
+    <MESSAGE value="최초셋팅" />
+    <MESSAGE value="게시물 목록처리, 게시글 상세페이지 생성" />
+    <MESSAGE value="게시글 클릭시 하단에목록보이도록 수정" />
+    <MESSAGE value="보고있는 게시글은 링크 비활성화" />
+    <MESSAGE value="css 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="css 수정" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/ThemeToggle.tsx</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

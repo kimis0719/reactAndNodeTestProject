@@ -1,7 +1,5 @@
 // client/src/App.tsx
-import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import BoardList from './components/BoardList';
 import PostForm from './components/PostForm'; // 새로 만들 PostForm 컴포넌트 임포
 import ThemeToggle from './components/ThemeToggle';
 import BoardPage from "./components/BoardPage";
