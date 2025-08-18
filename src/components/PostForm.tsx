@@ -3,12 +3,28 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const PostForm = () => {
+  // 게시글 관련
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
+  const [authorEmail, setAuthorEmail] = useState('');
   const [createdAt, setCreatedAt] = useState<Date | null>(null);
   const { id } = useParams<{ id: string }>();
+
+  //페이지 이동시 사용
   const navigate = useNavigate();
+
+  // 요청에 posts 이 있으면 보기모드로 인식
   const isViewMode = location.pathname.includes('/posts/');
+
+  // 사용자정보
+  // localStorage에서 'user'라는 키로 저장된 데이터를 가져옴
+  const storedUser = localStorage.getItem('user');
+  let isAuthor = false;
+
+  // 보기모드면서, 로그인정보가 있다면 작성자여부 체크
+  if(isViewMode && storedUser !== null) {
+    isAuthor = JSON.parse(storedUser).email === authorEmail || JSON.parse(storedUser).email === 'admin@naver.com' ;
+  }
 
   useEffect(() => {
     if (id) {
@@ -16,6 +32,7 @@ const PostForm = () => {
         const response = await axios.get(`/api/posts/${id}`);
         setTitle(response.data.title);
         setContent(response.data.content);
+        setAuthorEmail(response.data.authorEmail);
         setCreatedAt(response.data.createdAt);
       };
       fetchPost();
@@ -24,12 +41,19 @@ const PostForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const postData = { title, content };
+    if (!storedUser) {
+      alert('글을 작성하려면 로그인이 필요합니다.');
+      return;
+    }
+    const user = JSON.parse(storedUser);
+    const authorEmail = user.email;
 
     try {
       if (id) {
+        const postData = { title, content};
         await axios.put(`/api/posts/${id}`, postData);
       } else {
+        const postData = { title, content, authorEmail};
         await axios.post('/api/posts', postData);
       }
       navigate('/');
@@ -49,8 +73,6 @@ const PostForm = () => {
     }
   };
 
-
-
   return (
       <div className="mx-auto max-w-3xl p-4">
         <h2 className="mb-4 text-2xl font-bold dark:text-gray-100">
@@ -59,9 +81,15 @@ const PostForm = () => {
         {isViewMode ? (
             <div className="space-y-5 rounded-xl border  p-5 dark:border-gray-700 dark:bg-gray-800">
               <div>
-                <p className="mt-1 text-lg  dark:text-gray-100">{title}</p>
-                <small className="text-xs  dark:text-gray-400">
-                  작성일: {new Date(createdAt ?? '' ).toLocaleDateString()}
+                {/* 제목과 작성자를 한 줄에 배치하기 위한 div */}
+                <div className="flex items-center justify-between">
+                  <p className="mt-1 text-lg dark:text-gray-100">{title}</p>
+                  <span className="text-sm  dark:text-gray-500">{authorEmail}</span>
+                </div>
+
+                {/* 작성일자는 그 아래 줄에 */}
+                <small className="text-xs dark:text-gray-400">
+                  작성일: {new Date(createdAt ?? '').toLocaleDateString()}
                 </small>
               </div>
 
@@ -78,9 +106,8 @@ const PostForm = () => {
                 >
                   뒤로가기
                 </button>
-
+                {isAuthor? (
                 <div className="flex items-center gap-2">
-                  {/* 1. '수정' 버튼에 다크 모드 배경색 추가 */}
                   <button
                       type="button"
                       onClick={() => navigate(`/edit/${id}`)}
@@ -89,7 +116,6 @@ const PostForm = () => {
                     수정
                   </button>
 
-                  {/* 2. '삭제' 버튼에 다크 모드 배경색 추가 */}
                   <button
                       onClick={() => handleDelete()}
                       className="rounded-md bg-red-600 px-3 py-1.5 text-sm font-medium text-white shadow-sm hover:bg-red-700 active:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-300 dark:bg-red-500 dark:hover:bg-red-600 dark:active:bg-red-700 dark:focus:ring-red-800"
@@ -98,6 +124,7 @@ const PostForm = () => {
                     삭제
                   </button>
                 </div>
+                ):( <div></div>)}
               </div>
             </div>
         ) : (

@@ -18,8 +18,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             break;
         case 'POST':
             try {
-                const { title, content } = req.body;
-                const newPost = new Post({ title, content });
+                const { title, content, authorEmail} = req.body;
+                const newPost = new Post({ title, content, authorEmail });
                 await newPost.save();
                 res.status(201).json(newPost);
             } catch (error) {
