@@ -6,10 +6,11 @@ interface Post {
     _id: string;
     title: string;
     content: string;
+    authorEmail: String;
     createdAt: string;
 }
 
-const Board = () => {
+const BoardList = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -84,6 +85,7 @@ const Board = () => {
                                 <div className="p-4 sm:p-5 flex flex-wrap items-center justify-between gap-3">
                                     <h3 className="text-lg font-semibold dark:text-gray-100">{post.title}</h3>
                                     <small className="text-xs text-gray-500 dark:text-gray-400">
+                                        <span> {post.authorEmail} </span>
                                         작성일: {new Date(post.createdAt).toLocaleDateString()}
                                     </small>
                                 </div>
@@ -92,6 +94,7 @@ const Board = () => {
                                     <div className="flex flex-wrap items-center justify-between gap-3">
                                         <h3 className="text-lg font-semibold dark:text-gray-100">{post.title}</h3>
                                         <small className="text-xs text-gray-500 dark:text-gray-400">
+                                            <span> {post.authorEmail} </span>
                                             작성일: {new Date(post.createdAt).toLocaleDateString()}
                                         </small>
                                     </div>
@@ -105,4 +108,4 @@ const Board = () => {
     );
 };
 
-export default Board;
+export default BoardList;

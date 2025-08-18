@@ -5,6 +5,7 @@ import mongoose, { Document, Schema } from 'mongoose';
 export interface IPost extends Document {
     title: string;
     content: string;
+    authorEmail: string;
     like: Number;
 }
 
@@ -13,6 +14,7 @@ const PostSchema: Schema = new Schema(
     {
         title: { type: String, required: true },
         content: { type: String, required: true },
+        authorEmail: { type: String, required: true },
         like: { type: Number, required: false },
     },
     {

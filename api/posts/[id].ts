@@ -20,8 +20,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             break;
         case 'PUT':
             try {
-                const { title, content } = req.body;
-                const updatedPost = await Post.findByIdAndUpdate(id, { title, content }, { new: true });
+                const { title, content, authorEmail } = req.body;
+                const updatedPost = await Post.findByIdAndUpdate(id, { title, content, authorEmail}, { new: true });
                 if (!updatedPost) return res.status(404).json({ message: 'Post not found' });
                 res.status(200).json(updatedPost);
             } catch (error) {

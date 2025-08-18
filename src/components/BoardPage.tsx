@@ -22,7 +22,7 @@ const BoardPage = () => {
             {/* 게시판 목록:  */}
             <section>
                 <h2 className="mb-4 text-xl font-semibold dark:text-gray-200">
-                    전체 글 목록ㅋㅋ
+                    전체 글 목록
                 </h2>
                 <BoardList />
             </section>
