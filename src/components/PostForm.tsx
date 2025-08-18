@@ -66,7 +66,7 @@ const PostForm = () => {
     if (window.confirm('정말 이 게시글을 삭제하시겠습니까?')) {
       try {
         await axios.delete(`/api/posts/${id}`);
-        navigate(-1); // 이전페이지로 이동
+        navigate('/'); // 메인페이지로 이동
       } catch (error) {
         console.error('Error deleting post', error);
       }
