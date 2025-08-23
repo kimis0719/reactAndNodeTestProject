@@ -11,8 +11,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     switch (method) {
         case 'GET':
             try {
-                const post = await Post.findById(id);
+                // ID로 문서를 찾아서 viewCount 필드를 1 증가시키고, 업데이트된 문서를 반환받는다.
+                const post = await Post.findByIdAndUpdate(
+                    id,
+                    { $inc: { viewCount: 1 } }, // '$inc'를 사용해 'viewCount' 필드를 1 증가
+                    { new: true } // 이 옵션을 줘야 업데이트 '후'의 문서를 반환함
+                );
                 if (!post) return res.status(404).json({ message: 'Post not found' });
+
                 res.status(200).json(post);
             } catch (error) {
                 res.status(500).json({ message: 'Error fetching post', error });

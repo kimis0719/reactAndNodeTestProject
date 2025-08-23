@@ -8,6 +8,7 @@ const PostForm = () => {
   const [content, setContent] = useState('');
   const [authorEmail, setAuthorEmail] = useState('');
   const [createdAt, setCreatedAt] = useState<Date | null>(null);
+  const [viewCount, setviewCount] = useState(0);
   const { id } = useParams<{ id: string }>();
 
   //페이지 이동시 사용
@@ -34,6 +35,7 @@ const PostForm = () => {
         setContent(response.data.content);
         setAuthorEmail(response.data.authorEmail);
         setCreatedAt(response.data.createdAt);
+        setviewCount(response.data.viewCount);
       };
       fetchPost();
     }
@@ -65,9 +67,8 @@ const PostForm = () => {
   const handleDelete = async () => {
     if (window.confirm('정말 이 게시글을 삭제하시겠습니까?')) {
       try {
-        await axios.delete(`/api/posts/${id}`).then(() => {
-            navigate('/'); // 메인페이지로 이동
-        })
+        await axios.delete(`/api/posts/${id}`);
+        navigate('/'); // 메인페이지로 이동
       } catch (error) {
         console.error('Error deleting post', error);
       }
@@ -90,6 +91,7 @@ const PostForm = () => {
 
                 {/* 작성일자는 그 아래 줄에 */}
                 <small className="text-xs dark:text-gray-400">
+                  <span> 조회수 : {viewCount}</span>
                   작성일: {new Date(createdAt ?? '').toLocaleDateString()}
                 </small>
               </div>

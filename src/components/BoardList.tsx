@@ -7,6 +7,7 @@ interface Post {
     title: string;
     content: string;
     authorEmail: String;
+    viewCount: number;
     createdAt: string;
 }
 
@@ -85,6 +86,7 @@ const BoardList = () => {
                                     <h3 className="text-lg font-semibold dark:text-gray-100">{post.title}</h3>
                                     <small className="text-xs text-gray-500 dark:text-gray-400">
                                         <span> {post.authorEmail} </span>
+                                        <span> 조회수 : {post.viewCount}</span>
                                         작성일: {new Date(post.createdAt).toLocaleDateString()}
                                     </small>
                                 </div>
@@ -94,6 +96,7 @@ const BoardList = () => {
                                         <h3 className="text-lg font-semibold dark:text-gray-100">{post.title}</h3>
                                         <small className="text-xs text-gray-500 dark:text-gray-400">
                                             <span> {post.authorEmail} </span>
+                                            <span> 조회수 : {post.viewCount}</span>
                                             작성일: {new Date(post.createdAt).toLocaleDateString()}
                                         </small>
                                     </div>
