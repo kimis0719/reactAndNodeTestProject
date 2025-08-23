@@ -18,8 +18,8 @@ const PostSchema: Schema = new Schema(
         title: { type: String, required: true },
         content: { type: String, required: true },
         authorEmail: { type: String, required: true },
-        like: { type: Number, required: false },
-        viewCount: { type: Number, required: false },
+        like: { type: Number, required: false, default: 0 },
+        viewCount: { type: Number, required: false, default: 0 },
     },
     {
         timestamps: true, // createdAt, updatedAt 자동 기록
