@@ -3,7 +3,6 @@ import mongoose, { Document, Schema } from 'mongoose';
 
 // TypeScript에서 사용할 Post 문서의 인터페이스
 export interface IPost extends Document {
-    postId: string;
     title: string;
     content: string;
     authorEmail: string;
@@ -14,7 +13,6 @@ export interface IPost extends Document {
 // Mongoose 스키마 정의
 const PostSchema: Schema = new Schema(
     {
-        postId: { type: String, required: true, unique: true },
         title: { type: String, required: true },
         content: { type: String, required: true },
         authorEmail: { type: String, required: true },
