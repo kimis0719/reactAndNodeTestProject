@@ -6,8 +6,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     await dbConnect();
 
     const { method } = req;
-    // const { uid } = req.query;
-    const { memberInfos } = req.body ?? {};
+
+    const rawBody = req.body ?? {};
+    const memberInfos = rawBody.memberInfos ?? rawBody;
 
     if (!memberInfos) {
         return res.status(400).json({ message: 'memberInfos is required' });
