@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import dbConnect from '../../lib/dbConnect.js'; // .js 추가
-import MemberBasic from "../../models/MemberBasic.js";
+import dbConnect from '../../../lib/dbConnect.js'; // .js 추가
+import MemberBasic from "../../../models/MemberBasic.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     await dbConnect();
@@ -15,7 +15,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     switch (method) {
         case 'PUT':
             try {
-                // uid PUT - 회원 가입
+                // uid PUT - 회원 가입 TODO :: authorEmail 중복 체크
                 if (!memberInfos.authorEmail || !memberInfos.password) {
                     return res.status(400).json({message: 'uid, authorEmail, and password are required'});
                 }

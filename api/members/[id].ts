@@ -16,7 +16,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         case 'GET':
             try {
                 // uid GET -> 회원의 UID 를 기준으로 삭제되지 않은 정보 조회
-                const memberInfo = await MemberBasic.find({ uid: uid, delYn: true }).sort({ createdAt: 1 }).lean();
+                const memberInfo = await MemberBasic.find({ uid: uid, delYn: false }).sort({ createdAt: 1 }).lean();
                 const outputInfo = {
                     uid: memberInfo[0].uid,
                     nName: memberInfo[0].nName,

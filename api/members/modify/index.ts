@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import dbConnect from '../../lib/dbConnect.js'; // .js 추가
-import MemberBasic from "../../models/MemberBasic.js";
+import dbConnect from '../../../lib/dbConnect.js'; // .js 추가
+import MemberBasic from "../../../models/MemberBasic.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     await dbConnect();
@@ -17,10 +17,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         case 'POST':
             try {
                 // uid POST - 회원 정보 수정 FIXME :: 닉네임, 휴대폰번호만 우선 수정가능 - 패스워드는 나중에 개발예정
-                const existingMember = await MemberBasic.findOne({uid: memberInfos.uid});
+                const existingMember = await MemberBasic.findOne({uid: memberInfos.uid, delYn: false});
 
                 if (!existingMember) {
-                    return res.status(404).json({message: 'Member not found'});
+                    return res.status(400).json({message: 'Member not found'});
                 }
 
 
