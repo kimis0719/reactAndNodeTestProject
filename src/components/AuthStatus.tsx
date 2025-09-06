@@ -1,5 +1,6 @@
 // client/src/components/AuthStatus.tsx
 import React, { useState } from 'react';
+import {useNavigate} from "react-router-dom";
 
 // App.tsx로부터 user 상태와 setUser 함수를 props로 받기 위한 타입 정의
 interface AuthStatusProps {
@@ -10,6 +11,9 @@ interface AuthStatusProps {
 const AuthStatus: React.FC<AuthStatusProps> = ({ user, setUser }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    // 페이지 이동을 위한 navigate 함수
+    const navigate = useNavigate();
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
@@ -84,7 +88,9 @@ const AuthStatus: React.FC<AuthStatusProps> = ({ user, setUser }) => {
                 <button
                     type="button"
                     className="w-full rounded-lg bg-gray-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-700 active:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-900 transition"
+                    onClick={() => navigate(`/signUp`)}
                 >
+
                     회원가입
                 </button>
             </div>

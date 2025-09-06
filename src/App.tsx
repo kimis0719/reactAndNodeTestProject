@@ -5,6 +5,7 @@ import PostForm from './components/PostForm.js'; // 새로 만들 PostForm 컴�
 import ThemeToggle from './components/ThemeToggle.js';
 import BoardPage from "./components/BoardPage.js";
 import AuthStatus from './components/AuthStatus.js';
+import SignUp from './components/SignUp.js';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
                         </Route>
                         <Route path="/write" element={<PostForm />} />
                         <Route path="/edit/:id" element={<PostForm />} />
+                        <Route path="/signUp" element={<SignUp />} />
                     </Routes>
                 </main>
 
