@@ -55,7 +55,7 @@ const PostForm = () => {
     useEffect(() => {
         if (id) {
             const fetchPost = async () => {
-                const response = await axios.get(`/api/posts/${id}`);
+                const response = await api.get(`/api/posts/${id}`);
                 setTitle(response.data.title);
                 setContent(response.data.content);
                 setNName(response.data.nName ?? 'ㅇㅇ');
@@ -80,10 +80,10 @@ const PostForm = () => {
         try {
             if (id) {
                 const postData = { title, content};
-                await axios.put(`/api/posts/${id}`, postData);
+                await api.put(`/api/posts/${id}`, postData);
             } else {
                 const postData = { title, content};
-                await axios.post('/api/posts', postData);
+                await api.post('/api/posts', postData);
             }
             navigate('/');
         } catch (error) {
