@@ -1,50 +1,89 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import dbConnect from '../../lib/dbConnect.js'; // .js 추가
-import Post from '../../models/Post.js';       // .js 추가
+import dbConnect from '../../lib/dbConnect.js';
+import Post from '../../models/Post.js';
+import { parse } from 'cookie';
+import { getSession } from '../members/lib/sessionStore.js';
+
+type MeLean = { uid: number; nName: string };
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
-    await dbConnect();
+  await dbConnect();
 
-    const { method } = req;
-    const { id } = req.query;
+  const { method } = req;
+  const { id } = req.query;
 
-    switch (method) {
-        case 'GET':
-            try {
-                // ID로 문서를 찾아서 viewCount 필드를 1 증가시키고, 업데이트된 문서를 반환받는다.
-                const post = await Post.findByIdAndUpdate(
-                    id,
-                    { $inc: { viewCount: 1 } }, // '$inc'를 사용해 'viewCount' 필드를 1 증가
-                    { new: true } // 이 옵션을 줘야 업데이트 '후'의 문서를 반환함
-                );
-                if (!post) return res.status(404).json({ message: 'Post not found' });
+  switch (method) {
+    case 'GET':
+      try {
+        const post = await Post.findByIdAndUpdate(
+          id,
+          { $inc: { viewCount: 1 } },
+          { new: true }
+        );
+        if (!post) return res.status(404).json({ message: 'Post not found' });
 
-                res.status(200).json(post);
-            } catch (error) {
-                res.status(500).json({ message: 'Error fetching post', error });
-            }
-            break;
-        case 'PUT':
-            try {
-                const { title, content, authorEmail } = req.body;
-                const updatedPost = await Post.findByIdAndUpdate(id, { title, content, authorEmail}, { new: true });
-                if (!updatedPost) return res.status(404).json({ message: 'Post not found' });
-                res.status(200).json(updatedPost);
-            } catch (error) {
-                res.status(500).json({ message: 'Error updating post', error });
-            }
-            break;
-        case 'DELETE':
-            try {
-                const deletedPost = await Post.findByIdAndDelete(id);
-                if (!deletedPost) return res.status(404).json({ message: 'Post not found' });
-                res.status(200).json({ message: 'Post deleted successfully' });
-            } catch (error) {
-                res.status(500).json({ message: 'Error deleting post', error });
-            }
-            break;
-        default:
-            res.setHeader('Allow', ['GET', 'PUT', 'DELETE']);
-            res.status(405).end(`Method ${method} Not Allowed`);
-    }
+        res.status(200).json(post);
+      } catch (error) {
+        res.status(500).json({ message: 'Error fetching post', error });
+      }
+      break;
+
+    case 'PUT':
+      try {
+        const cookies = parse(req.headers.cookie ?? '');
+        const sid = cookies['sid'];
+        if (!sid) return res.status(401).json({ message: 'Unauthorized' });
+
+        const session = await getSession(sid);
+        if (!session) return res.status(401).json({ message: 'Unauthorized' });
+
+        const existing = await Post.findById(id).lean<MeLean | null>();
+        if (!existing) return res.status(404).json({ message: 'Post not found' });
+
+        // 작성자 본인인지 확인
+        if (existing.uid !== session.uid) {
+          return res.status(403).json({ message: 'Forbidden' });
+        }
+
+        const { title, content } = req.body ?? {};
+        const updatedPost = await Post.findByIdAndUpdate(
+          id,
+          { title, content },
+          { new: true }
+        );
+        if (!updatedPost) return res.status(404).json({ message: 'Post not found' });
+        res.status(200).json(updatedPost);
+      } catch (error) {
+        res.status(500).json({ message: 'Error updating post', error });
+      }
+      break;
+
+    case 'DELETE':
+      try {
+        const cookies = parse(req.headers.cookie ?? '');
+        const sid = cookies['sid'];
+        if (!sid) return res.status(401).json({ message: 'Unauthorized' });
+
+        const session = await getSession(sid);
+        if (!session) return res.status(401).json({ message: 'Unauthorized' });
+
+        const existing = await Post.findById(id).lean<MeLean | null>();
+        if (!existing) return res.status(404).json({ message: 'Post not found' });
+
+        if (existing.uid !== session.uid) {
+          return res.status(403).json({ message: 'Forbidden' });
+        }
+
+        const deletedPost = await Post.findByIdAndDelete(id);
+        if (!deletedPost) return res.status(404).json({ message: 'Post not found' });
+        res.status(200).json({ message: 'Post deleted successfully' });
+      } catch (error) {
+        res.status(500).json({ message: 'Error deleting post', error });
+      }
+      break;
+
+    default:
+      res.setHeader('Allow', ['GET', 'PUT', 'DELETE']);
+      res.status(405).end(`Method ${method} Not Allowed`);
+  }
 }

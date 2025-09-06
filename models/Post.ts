@@ -15,7 +15,8 @@ const PostSchema: Schema = new Schema(
     {
         title: { type: String, required: true },
         content: { type: String, required: true },
-        authorEmail: { type: String, required: true },
+        nName: { type: String, required: true },
+        uid: { type: Number, required: true },
         like: { type: Number, required: false, default: 0 },
         viewCount: { type: Number, required: false, default: 0 },
     },

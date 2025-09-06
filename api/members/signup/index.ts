@@ -1,4 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import bcrypt from 'bcryptjs';
+
 import dbConnect from '../../../lib/dbConnect.js'; // .js 추가
 import MemberBasic from "../../../models/MemberBasic.js";
 
@@ -21,6 +23,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 if (!memberInfos.authorEmail || !memberInfos.password) {
                     return res.status(400).json({message: 'uid, authorEmail, and password are required'});
                 }
+
+                memberInfos.password = await bcrypt.hash(memberInfos.password, 10);
+                console.log(memberInfos);
 
                 const newMember = await MemberBasic.create(memberInfos);
                 console.log(newMember);

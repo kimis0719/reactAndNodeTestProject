@@ -3,13 +3,26 @@ import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import CommentSection from '../components/CommentSection.js';
 
+const api = axios.create({
+    withCredentials: true, // 세션 쿠키 전송
+});
+
+type MeResponse =
+    | { authenticated: false }
+    | { authenticated: true; user: { uid: number; email: string; nName?: string } };
+
 const PostForm = () => {
     // 게시글 관련
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
-    const [authorEmail, setAuthorEmail] = useState('');
+    const [nName, setNName] = useState(''); // nName으로 표시
     const [createdAt, setCreatedAt] = useState<Date | null>(null);
     const [viewCount, setviewCount] = useState(0);
+    const [uid, setUid] = useState<number | null>(null);
+
+    const [me, setMe] = useState<{ uid: number; email: string; nName?: string } | null>(null);
+    const [loadingMe, setLoadingMe] = useState(true);
+
     const { id } = useParams<{ id: string }>();
 
     //페이지 이동시 사용
@@ -18,15 +31,26 @@ const PostForm = () => {
     // 요청에 posts 이 있으면 보기모드로 인식
     const isViewMode = location.pathname.includes('/posts/');
 
-    // 사용자정보
-    // localStorage에서 'user'라는 키로 저장된 데이터를 가져옴
-    const storedUser = localStorage.getItem('user');
-    let isAuthor = false;
-
-    // 보기모드면서, 로그인정보가 있다면 작성자여부 체크
-    if(isViewMode && storedUser !== null) {
-        isAuthor = JSON.parse(storedUser).email === authorEmail || JSON.parse(storedUser).email === 'admin@naver.com' ;
-    }
+    // 로그인 상태 로드
+    useEffect(() => {
+        let mounted = true;
+        (async () => {
+            try {
+                setLoadingMe(true);
+                const { data } = await api.get<MeResponse>('/api/members/logme');
+                if (!mounted) return;
+                if (data.authenticated) setMe(data.user);
+                else setMe(null);
+            } catch {
+                if (mounted) setMe(null);
+            } finally {
+                if (mounted) setLoadingMe(false);
+            }
+        })();
+        return () => {
+            mounted = false;
+        };
+    }, []);
 
     useEffect(() => {
         if (id) {
@@ -34,7 +58,8 @@ const PostForm = () => {
                 const response = await axios.get(`/api/posts/${id}`);
                 setTitle(response.data.title);
                 setContent(response.data.content);
-                setAuthorEmail(response.data.authorEmail);
+                setNName(response.data.nName ?? 'ㅇㅇ');
+                setUid(response.data.uid ?? null);
                 setCreatedAt(response.data.createdAt);
                 setviewCount(response.data.viewCount);
             };
@@ -42,34 +67,40 @@ const PostForm = () => {
         }
     }, [id]);
 
+    const isAuthor = !!(me && uid && me.uid === uid);
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!storedUser) {
+        if (loadingMe) return;
+        if (!me) {
             alert('글을 작성하려면 로그인이 필요합니다.');
             return;
         }
-        const user = JSON.parse(storedUser);
-        const authorEmail = user.email;
 
         try {
             if (id) {
                 const postData = { title, content};
                 await axios.put(`/api/posts/${id}`, postData);
             } else {
-                const postData = { title, content, authorEmail};
+                const postData = { title, content};
                 await axios.post('/api/posts', postData);
             }
             navigate('/');
         } catch (error) {
             console.error('Error submitting post', error);
+            alert('게시글 저장에 실패했습니다.');
         }
     };
 
     const handleDelete = async () => {
+        if (!isAuthor) {
+            alert('삭제 권한이 없습니다.');
+            return;
+        }
         if (window.confirm('정말 이 게시글을 삭제하시겠습니까?')) {
             try {
-                await axios.delete(`/api/posts/${id}`);
-                navigate('/'); // 메인페이지로 이동
+                await api.delete(`/api/posts/${id}`);
+                navigate('/');
             } catch (error) {
                 console.error('Error deleting post', error);
             }
@@ -87,7 +118,7 @@ const PostForm = () => {
                         {/* 제목과 작성자를 한 줄에 배치하기 위한 div */}
                         <div className="flex items-center justify-between">
                             <p className="mt-1 text-lg dark:text-gray-100">{title}</p>
-                            <span className="text-sm  dark:text-gray-500">{authorEmail}</span>
+                            <span className="text-sm  dark:text-gray-500">{nName}</span>
                         </div>
 
                         {/* 작성일자는 그 아래 줄에 */}
