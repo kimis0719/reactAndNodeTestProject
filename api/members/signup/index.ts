@@ -7,7 +7,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const { method } = req;
 
-    const { memberInfos } = req.body ?? {};
+    const rawBody = req.body ?? {};
+    const memberInfos = rawBody.memberInfos ?? rawBody;
+
     if (!memberInfos) {
         return res.status(400).json({ message: 'memberInfos is required to add member' });
     }
@@ -21,7 +23,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                 }
 
                 const newMember = await MemberBasic.create(memberInfos);
-
+                console.log(newMember);
                 if (!newMember) {
                     return res.status(500).json({message: 'Failed to create member'});
                 }

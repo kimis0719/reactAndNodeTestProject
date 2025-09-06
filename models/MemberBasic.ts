@@ -41,7 +41,7 @@ const MemberBasicSchema: Schema = new Schema(
 );
 
 // 저장 전에 uid가 없으면 자동 증가값 발급
-MemberBasicSchema.pre('save', async function (this:HydratedDocument<IMemberBasic> ,next) {
+MemberBasicSchema.pre('validate', async function (this:HydratedDocument<IMemberBasic> ,next) {
     try {
         if (this.isNew && (this.uid === undefined || this.uid === null)) {
             const counter = await Counter.findOneAndUpdate(
