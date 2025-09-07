@@ -31,7 +31,7 @@ const MemberBasicSchema: Schema = new Schema(
         authorEmail: { type: String, required: true }, // 로그인 이메일
         password: { type: String, required: true }, // 비밀번호 :: TODO :: 암호화
         nName: { type: String, required: false, default: 'ㅇㅇ' }, // 닉네임
-        mblNo: { type: Number, required: false, default: 0 }, // 핸드폰번호 - 선택
+        mblNo: { type: String, required: false}, // 핸드폰번호 - 선택
         memberType: { type: String, required: false, default: 'user' }, // 회원타입 - 유저, 파딱, 주딱, 관리자 등
         delYn: { type: Boolean, required: false, default: false}, // 회원탈퇴여부
     },

@@ -93,6 +93,13 @@ const AuthStatus: React.FC<AuthStatusProps> = ({ user, setUser }) => {
                 </p>
                 {error && <p className="text-sm text-red-500">{error}</p>}
                 <button
+                    type="button"
+                    className="w-full rounded-lg bg-gray-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-gray-700 active:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300 dark:focus:ring-gray-900 transition"
+                    onClick={() => navigate(`/modify`)}
+                >
+                    회원정보수정
+                </button>
+                <button
                     onClick={handleLogout}
                     disabled={busy}
                     className="w-full rounded-lg bg-red-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-red-700 active:bg-red-800 focus:outline-none focus:ring-2 focus:ring-red-300 dark:focus:ring-red-900 transition disabled:opacity-60"
