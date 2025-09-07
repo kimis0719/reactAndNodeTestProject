@@ -24,7 +24,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
                     return res.status(400).json({message: 'Member not found'});
                 }
 
-
                 if (!memberInfos.authorEmail && !memberInfos.password &&
                     memberInfos.authorEmail !== existingMember.authorEmail &&
                     memberInfos.password !== existingMember.password) {

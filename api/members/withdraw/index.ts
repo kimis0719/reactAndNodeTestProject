@@ -2,6 +2,7 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import dbConnect from '../../../lib/dbConnect.js'; // .js 추가
 import MemberBasic from "../../../models/MemberBasic.js";
 
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
     await dbConnect();
 
